@@ -1,3 +1,4 @@
+//Arrange
 import {
   findNextNumber,
   count1sand0s,
@@ -10,26 +11,35 @@ import {
 
 describe("findNextNumber", () => {
   test("returns the next number after the given number in the array", () => {
+    //Act & Action
     expect(findNextNumber([5, 3, 7, 8, 1, 10], 7)).toBe(8);
     expect(findNextNumber([5, 3, 7, 8, 1, 10], 1)).toBe(10);
     expect(findNextNumber([4, 22, 654, 123, 65, 23, 40, 1], 22)).toBe(654);
   });
 
+  //Arrange
   test("if the number is not found in the array, returns null", () => {
+    //Act & Action
     expect(findNextNumber([5, 3, 7, 8, 1, 10], 55)).toBe(null);
   });
 
+  //Arrange
   test("if the number is found more than once, returns the number after the first instance", () => {
+    //Act & Action
     expect(findNextNumber([5, 3, 7, 8, 1, 3, 10], 3)).toBe(7);
   });
 
+  //Arrange
   test("if the number is found in the final index position of the array, returns null", () => {
+    //Act & Action
     expect(findNextNumber([5, 3, 7, 8, 1, 3, 10], 10)).toBe(null);
   });
 });
 
+//Arrange
 describe("count1sand0s", () => {
   test("returns an object with the count of 1s and 0s in a string", () => {
+    //Act&Assert
     expect(count1sand0s("11000")).toEqual({
       1: 2,
       0: 3,
@@ -52,8 +62,10 @@ describe("count1sand0s", () => {
   });
 });
 
+//Arrange
 describe("reverseNumber", () => {
   test("reverses the digits of a number", () => {
+    //Act&Assert
     expect(reverseNumber(5)).toBe(5);
     expect(reverseNumber(104)).toBe(401);
     expect(reverseNumber(12345)).toBe(54321);
@@ -61,26 +73,33 @@ describe("reverseNumber", () => {
   });
 });
 
+//Arrange
 describe("sumArrays", () => {
   test("returns the total of the numbers in all sub arrays", () => {
     const arrs = [[1, 2, 3], [6, 3, 1], [1], [9, 10], [3, 5]];
+    //Act&Assert
     expect(sumArrays(arrs)).toBe(44);
   });
 });
 
+//Arrange
 describe("arrShift", () => {
   test("returns an array with the first and last items swapped", () => {
+    //Act&Assert
     expect(arrShift([1, 2])).toEqual([2, 1]);
     expect(arrShift([1, 2, 3])).toEqual([3, 2, 1]);
     expect(arrShift([1, 2, 3, 4])).toEqual([4, 2, 3, 1]);
   });
 
+  //Arrange
   test("makes no difference when the array length is < 2", () => {
+    //Act&Assert
     expect(arrShift([1])).toEqual([1]);
     expect(arrShift([])).toEqual([]);
   });
 });
 
+//Arrange
 describe("findNeedle", () => {
   test("returns true if any of the properties of an object contain the specified string", () => {
     const obj1 = {
@@ -90,8 +109,10 @@ describe("findNeedle", () => {
       store: "Warrington",
       code: 12872,
     };
+    //Act&Assert
     expect(findNeedle(obj1, "table")).toBe(true);
 
+    //Arrange
     // Note that the objects provided to the function could have any keys/values
     const obj2 = {
       product_name: "Sparkle n Shine Dishwasher Tablets",
@@ -100,6 +121,7 @@ describe("findNeedle", () => {
       discounted: false,
       available: true,
     };
+    //Act&Assert
     expect(findNeedle(obj2, "Dishwasher")).toBe(true);
   });
 
@@ -111,6 +133,7 @@ describe("findNeedle", () => {
       store: "Warrington",
       code: 12872,
     };
+    //Act&Assert
     expect(findNeedle(obj1, "chair")).toBe(false);
 
     // Note that the objects provided to the function could have any keys/values
@@ -121,9 +144,11 @@ describe("findNeedle", () => {
       discounted: false,
       available: true,
     };
+    //Act&Assert
     expect(findNeedle(obj2, "Carpet Cleaner")).toBe(false);
   });
 
+  //Arrange
   test("The search string should not be case sensitive", () => {
     const obj1 = {
       name: "LINNMON",
@@ -133,14 +158,17 @@ describe("findNeedle", () => {
       code: 12872,
     };
 
+    //Act&Assert
     expect(findNeedle(obj1, "warrington")).toBe(true);
     expect(findNeedle(obj1, "linnmon")).toBe(true);
     expect(findNeedle(obj1, "Liverpool")).toBe(false);
   });
 });
 
+//Arrange
 describe("getWordFrequencies", () => {
   test("returns the frequencies of each word in a string", () => {
+    //Act&Assert
     expect(getWordFrequencies("hello world")).toEqual({
       hello: 1,
       world: 1,
@@ -160,14 +188,18 @@ describe("getWordFrequencies", () => {
     });
   });
 
+  //Arrange
   test("ignores capitalisation", () => {
+    //Act&Assert
     expect(getWordFrequencies("Hello hello hello")).toEqual({
       hello: 3,
     });
   });
 
+  //Arrange
   test("ignores punctuation", () => {
     // Hint: Google "JavaScript remove special characters from string" to get some ideas!
+    //Act&Assert
     expect(
       getWordFrequencies("Hello, hello hello! What have we here?")
     ).toEqual({
